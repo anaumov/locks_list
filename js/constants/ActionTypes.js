@@ -1,0 +1,6 @@
+export const FETCHING = 'LOCKS:FETCHING';
+export const FETCHED = 'LOCKS:FETCHED';
+export const UNLOCK = 'LOCKS:UNLOCK';
+export const UNLOCKED = 'LOCKS:UNLOCKED';
+export const NOTIFY = 'LOCKS:NOTIFY';
+export const RESET_NOTIFICATION = 'LOCKS:RESET_NOTIFICATION';
