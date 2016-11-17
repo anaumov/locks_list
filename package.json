@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "babel-core": "^6.3.15",
+    "babel-polyfill": "^6.16.0",
     "es6-promise": "^4.0.5",
     "eslint-config-airbnb": "^13.0.0",
     "kisi-client": "^4.0.1",
