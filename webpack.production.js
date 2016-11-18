@@ -3,7 +3,11 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var devFlagPlugin = new webpack.DefinePlugin({
-  __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+  __DEV__: 'false'
+});
+
+var nodeEnvPlugin = new webpack.DefinePlugin({
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 });
 
 module.exports = {
@@ -18,12 +22,13 @@ module.exports = {
   plugins: [
     new webpack.NoErrorsPlugin(),
     devFlagPlugin,
+    nodeEnvPlugin,
     new ExtractTextPlugin('app.css')
   ],
   module: {
     loaders: [
       { test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?module!cssnext-loader') }
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader!cssnext-loader') }
     ]
   },
   resolve: {
